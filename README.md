@@ -12,48 +12,73 @@
   <img src="assets/readme-figure.png" alt="Bank Payoff Solution overview" width="100%">
 </p>
 
-The overview figure frames the repository as a small payoff-analysis workflow: assumptions enter the notebook model, experiments produce payoff surfaces, and report artifacts capture the final interpretation.
+**Figure 1.** The overview figure frames the repository as a small payoff-analysis workflow: assumptions enter the notebook model, experiments produce payoff surfaces, and report artifacts capture the final interpretation.
 
-## Overview
+## Scope
 
-Bank Payoff Solution organizes notebook and report artifacts for studying parameterized payoff surfaces, kernelized response behavior, and scenario-level result interpretation. It is best used as a reproducible research workspace: open the notebooks, adjust the payoff parameters, and compare the exported reports.
+This repository is organized as a conference-style research artifact for parameterized payoff surfaces and scenario analysis. Bank Payoff Solution organizes notebook and report artifacts for studying parameterized payoff surfaces, kernelized response behavior, and scenario-level result interpretation. It is best used as a reproducible research workspace: open the notebooks, adjust the payoff parameters, and compare the exported reports.
 
-## What Is Included
+The README is structured for fast inspection by reviewers and future collaborators: it states the artifact scope, the main entry points, the reproduction path, and the outputs that should be checked after a run.
 
-- `one demo- {kernel5, a=0.1,b=0.5,d=5}.nb`: worked Mathematica notebook for the reference demo case.
-- `XinyuanSong.nb`: exploratory notebook for payoff derivations and parameter checks.
-- `model 9.11.22.pdf`: static model write-up used as the main reference document.
-- `results.docx`: saved result notes for comparison and reporting.
+## Artifact Contents
 
-## Quick Start
+| Component | Role |
+| --- | --- |
+| `one demo- {kernel5, a=0.1,b=0.5,d=5}.nb` | worked Mathematica notebook for the reference demo case. |
+| `XinyuanSong.nb` | exploratory notebook for payoff derivations and parameter checks. |
+| `model 9.11.22.pdf` | static model write-up used as the main reference document. |
+| `results.docx` | saved result notes for comparison and reporting. |
+
+## Reproduction Guide
 
 1. `git clone git@github.com:Hik289/bank-pay-off-solution.git`
 2. Open the `.nb` notebooks in Wolfram Mathematica.
 3. Use the PDF and DOCX files as reference outputs when checking new parameter settings.
 
-## Suggested Workflow
+For a full rerun, record the data window, random seed, software versions, machine type, and command used for each experiment. Keep raw datasets outside Git unless they are small public fixtures.
 
-1. Start with the smallest runnable script or notebook listed above.
-2. Keep raw data paths and credentials outside the repository.
-3. Save generated figures, tables, and reports under the existing result folders.
-4. When an experiment becomes stable, record the exact data window, parameters, and command used to reproduce it.
+## Experimental Workflow
 
-## Repository Map
+| Stage | What to Check |
+| --- | --- |
+| Setup | Confirm local data paths, environment packages, and any MATLAB or notebook paths before running experiments. |
+| Run | Execute the smallest script or notebook first, then scale to the full experiment once outputs match expectations. |
+| Inspect | Compare generated figures, logs, tables, and saved result folders against the intended analysis. |
+| Extend | Add new experiments as separate scripts or notebooks with explicit names instead of overwriting existing artifacts. |
 
-- `assets/readme-figure.png`: README overview figure.
-- Project scripts and notebooks: core research entry points.
-- Result or report folders: generated artifacts used for analysis and review.
+## Expected Outputs
+
+- Recreated figures, tables, notebooks, reports, or saved result files from the listed entry points.
+- A clear mapping from each experiment command to its generated output location.
+- Updated notes when a script depends on local data, private paths, or external software.
 
 ## Paper or Reference
 
 No external paper link is currently attached to this project. For now, the code, notebooks, and notes in this repository are the primary reference artifact.
 
+## Citation
+
+If this repository supports academic work, cite the linked paper when available. Otherwise cite the repository version used in your experiment.
+
+```bibtex
+@misc{bank_pay_off_solution_artifact_2026,
+  title = {{Bank Payoff Solution}},
+  author = {Hik289},
+  year = {2026},
+  howpublished = {\url{https://github.com/Hik289/bank-pay-off-solution}},
+  note = {Research artifact}
+}
+```
+
 ## License
 
 No explicit license file is included yet. Add one before public reuse, redistribution, or package release.
 
-## Maintenance Notes
+## Reviewer Notes
 
-- Add a pinned environment file if this project is prepared for external installation.
-- Keep large datasets outside Git and document where each script expects them locally.
-- Prefer small, named experiment outputs over overwriting shared result files.
+| Item | Status |
+| --- | --- |
+| Code | Included in this repository. |
+| Data | Expected to be configured locally unless a small fixture is committed. |
+| Environment | Base dependencies are listed in the reproduction guide; pin a lockfile for archival release. |
+| Results | Store generated artifacts under the existing result, report, log, or output folders. |
