@@ -12,45 +12,50 @@
   <img src="assets/readme-figure.png" alt="Bank Payoff Solution overview" width="100%">
 </p>
 
-**Figure 1.** The overview figure frames the repository as a small payoff-analysis workflow: assumptions enter the notebook model, experiments produce payoff surfaces, and report artifacts capture the final interpretation.
+## Abstract
 
-## Scope
+This repository is a conference-style artifact for parameterized payoff modeling for structured banking scenarios. It packages the code and notes needed to inspect the central research question: How do payoff surfaces change under controlled kernel and scenario assumptions? The emphasis is on transparent entry points, reproducible execution, and clear separation between code, local data, and generated outputs.
 
-This repository is organized as a conference-style research artifact for parameterized payoff surfaces and scenario analysis. Bank Payoff Solution organizes notebook and report artifacts for studying parameterized payoff surfaces, kernelized response behavior, and scenario-level result interpretation. It is best used as a reproducible research workspace: open the notebooks, adjust the payoff parameters, and compare the exported reports.
+## Artifact at a Glance
 
-The README is structured for fast inspection by reviewers and future collaborators: it states the artifact scope, the main entry points, the reproduction path, and the outputs that should be checked after a run.
+| Item | Details |
+| --- | --- |
+| Research question | How do payoff surfaces change under controlled kernel and scenario assumptions? |
+| Primary artifact | Mathematica notebooks, a model PDF, and saved result notes. |
+| Main entry points | `one demo- {kernel5, a=0.1,b=0.5,d=5}.nb`, `XinyuanSong.nb` |
+| Expected outputs | Payoff surfaces, scenario tables, and report-ready notes. |
 
-## Artifact Contents
+## Repository Structure
 
-| Component | Role |
+| Item | Details |
 | --- | --- |
 | `one demo- {kernel5, a=0.1,b=0.5,d=5}.nb` | worked Mathematica notebook for the reference demo case. |
 | `XinyuanSong.nb` | exploratory notebook for payoff derivations and parameter checks. |
 | `model 9.11.22.pdf` | static model write-up used as the main reference document. |
 | `results.docx` | saved result notes for comparison and reporting. |
 
-## Reproduction Guide
+## Reproducibility Protocol
 
 1. `git clone git@github.com:Hik289/bank-pay-off-solution.git`
 2. Open the `.nb` notebooks in Wolfram Mathematica.
 3. Use the PDF and DOCX files as reference outputs when checking new parameter settings.
+4. Record the data window, random seed, software versions, machine type, and exact command used for any full rerun.
+5. Store regenerated figures, tables, checkpoints, or reports under the existing result folders instead of overwriting raw inputs.
 
-For a full rerun, record the data window, random seed, software versions, machine type, and command used for each experiment. Keep raw datasets outside Git unless they are small public fixtures.
+## Evaluation Protocol
 
-## Experimental Workflow
-
-| Stage | What to Check |
+| Step | Reviewer-facing check |
 | --- | --- |
-| Setup | Confirm local data paths, environment packages, and any MATLAB or notebook paths before running experiments. |
-| Run | Execute the smallest script or notebook first, then scale to the full experiment once outputs match expectations. |
-| Inspect | Compare generated figures, logs, tables, and saved result folders against the intended analysis. |
-| Extend | Add new experiments as separate scripts or notebooks with explicit names instead of overwriting existing artifacts. |
+| Environment | Confirm the listed runtime or notebook environment starts without modifying tracked files. |
+| Minimal run | Execute the smallest entry point before launching longer experiments. |
+| Output check | Compare regenerated files with the expected figures, tables, logs, or reports named in this README. |
+| Extension check | Add new runs as separate scripts, notebooks, or result folders with explicit names. |
 
-## Expected Outputs
+## Expected Results
 
-- Recreated figures, tables, notebooks, reports, or saved result files from the listed entry points.
-- A clear mapping from each experiment command to its generated output location.
-- Updated notes when a script depends on local data, private paths, or external software.
+- The main scripts or notebooks should regenerate the project-specific artifacts listed in **Artifact at a Glance**.
+- Outputs should be traceable to a command, parameter setting, and data window.
+- Any private data path or machine-specific setting should be documented before sharing the artifact externally.
 
 ## Paper or Reference
 
@@ -58,7 +63,7 @@ No external paper link is currently attached to this project. For now, the code,
 
 ## Citation
 
-If this repository supports academic work, cite the linked paper when available. Otherwise cite the repository version used in your experiment.
+If this repository supports a paper, cite the paper first and the artifact version second. If no paper is attached, cite the repository snapshot used in the experiment.
 
 ```bibtex
 @misc{bank_pay_off_solution_artifact_2026,
@@ -66,7 +71,7 @@ If this repository supports academic work, cite the linked paper when available.
   author = {Hik289},
   year = {2026},
   howpublished = {\url{https://github.com/Hik289/bank-pay-off-solution}},
-  note = {Research artifact}
+  note = {Conference-style research artifact}
 }
 ```
 
@@ -74,11 +79,11 @@ If this repository supports academic work, cite the linked paper when available.
 
 No explicit license file is included yet. Add one before public reuse, redistribution, or package release.
 
-## Reviewer Notes
+## Reviewer Checklist
 
-| Item | Status |
+| Claim | How to inspect it |
 | --- | --- |
-| Code | Included in this repository. |
-| Data | Expected to be configured locally unless a small fixture is committed. |
-| Environment | Base dependencies are listed in the reproduction guide; pin a lockfile for archival release. |
-| Results | Store generated artifacts under the existing result, report, log, or output folders. |
+| Code availability | Code and notebooks are present in the repository. |
+| Reproducibility | The protocol above gives the expected setup and run order. |
+| Result traceability | Generated outputs should live in named result, report, log, or output folders. |
+| Extensibility | New experiments should preserve existing artifacts and add clearly named outputs. |
